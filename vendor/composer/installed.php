@@ -3,7 +3,7 @@
         'name' => 'bett-ingenieure/bi-modules-test-repo',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '92a52e1e522f4fa6b4766c4fe354fa4a82a3198b',
+        'reference' => '1405f36b2ab19599c154c17a0ddbc380fd021a39',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'bett-ingenieure/bi-modules-test-repo' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '92a52e1e522f4fa6b4766c4fe354fa4a82a3198b',
+            'reference' => '1405f36b2ab19599c154c17a0ddbc380fd021a39',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
