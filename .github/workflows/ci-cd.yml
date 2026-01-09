@@ -22,7 +22,7 @@ jobs:
       - name: Checkout tester repo
         uses: actions/checkout@v4
         with:
-          repository: YOUR_ORG/YOUR_TESTER_REPO
+          repository: bett-ingenieure/php-tester
           ref: main
           path: tester
           token: ${{ github.token }}
