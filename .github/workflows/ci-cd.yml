@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   tester:
+    name: CI
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +28,6 @@ jobs:
           php-version: "8.2"
           tools: composer
           extensions: imagick, xdebug, swoole
-
 
       - name: Setup PHP 8.3
         uses: shivammathur/setup-php@v2
