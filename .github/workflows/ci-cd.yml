@@ -21,19 +21,19 @@ jobs:
       - name: Checkout target repo
         uses: actions/checkout@v4
 
-      - name: Setup PHP
+      - name: Setup PHP 8.2
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.2"
+          php-version: "8.3"
           tools: composer
           extensions: imagick, xdebug, swoole
 
-      - name: Provide /opt/php-82/current-live/bin/php
-        run: |
-          sudo mkdir -p /opt/php-82/current-live/bin
-          sudo ln -sf "$(command -v php)" /opt/php-82/current-live/bin/php
-          echo "/opt/php-82/current-live/bin" >> $GITHUB_PATH
+      - name: Clone php build config
+        run: git clone --depth 1 https://github.com/bett-ingenieure/php-build-config.git .php-build-config
 
+      - name: Run php-build-config for PHP 8.2
+        run: |
+          php .php-build-config/php82-update.php
 
       - name: Install dependencies
         env:
