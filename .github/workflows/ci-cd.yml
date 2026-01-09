@@ -51,7 +51,7 @@ jobs:
         run: |
           echo "PWD is: $PWD"
           echo "Running tester…"
-          /opt/php-82/current-live/bin/php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+          php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
           
           status=$?
           
