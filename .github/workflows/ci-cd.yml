@@ -27,10 +27,10 @@ jobs:
           php-version: "8.2"
           tools: composer
 
-      - name: Configure Composer GitHub token
-        run: composer config --global github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
-
       - name: Install dependencies
+        env:
+          COMPOSER_AUTH: >
+            {"github-oauth":{"github.com":"${{ secrets.COMPOSER_GH_TOKEN }}"}}
         run: |
           composer install --no-interaction --prefer-dist
           cd vendor/bett-ingenieure/tester
