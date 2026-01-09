@@ -49,7 +49,7 @@ jobs:
         run: |
           echo "PWD is: $PWD"
           echo "Running tester…"
-          php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+          /opt/php-82/current-live/bin/php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
 
 #      - name: Composer auth
 #        run: |
