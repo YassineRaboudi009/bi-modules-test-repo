@@ -38,12 +38,9 @@ jobs:
 
       - name: Run tester
         shell: bash
-        env:
-          TMPDIR: /tmp
         run: |
           echo "PWD is: $PWD"
           echo "Running tester…"
-          php -d variables_order=EGPCS -r 'echo "ENV PWD = " . $_ENV['\''PWD'\''] . PHP_EOL;'
           php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
 
 #      - name: Composer auth
