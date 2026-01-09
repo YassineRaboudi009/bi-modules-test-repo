@@ -1,5 +1,0 @@
-includes:
-	- phpstan.neon
-parameters:
-	phpVersion: 80100
-	tmpDir: temp/phpstan/php81
