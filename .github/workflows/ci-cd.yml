@@ -18,18 +18,18 @@ jobs:
           php-version: "8.2"
           tools: composer
 
-      - name: Composer auth
-        run: |
-          echo 'COMPOSER_AUTH={"github-oauth":{"github.com":"'"${{ github.token }}"'"}}' >> $GITHUB_ENV
-          composer install --no-interaction --prefer-dist
-
-      - name: Install dependencies
-        run: composer install
-
-      - name: Install tester dependencies
-        run: |
-          cd vendor/bett-ingenieure/tester
-          composer install
+#      - name: Composer auth
+#        run: |
+#          echo 'COMPOSER_AUTH={"github-oauth":{"github.com":"'"${{ github.token }}"'"}}' >> $GITHUB_ENV
+#          composer install --no-interaction --prefer-dist
+#
+#      - name: Install dependencies
+#        run: composer install
+#
+#      - name: Install tester dependencies
+#        run: |
+#          cd vendor/bett-ingenieure/tester
+#          composer install
 
       - name: Run tester
         run: php ./vendor/bett-ingenieure/tester/phptester.php
