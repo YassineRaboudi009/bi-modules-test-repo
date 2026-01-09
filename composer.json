@@ -7,9 +7,19 @@
             "url": "https://composer-packages.bett-ingenieure.de/"
         }
     ],
+    "require": {
+      "bett-ingenieure/tester": "dev-master"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "require": {
-        "bett-ingenieure/tester": "dev-master"
-    }
+  "scripts": {
+    "post-update-cmd": [
+      "echo \"Clearing dev-master git repositories\"",
+      "rm -rf vendor/bett-ingenieure/base/.git",
+      "rm -rf vendor/bett-ingenieure/file/.git",
+      "rm -rf vendor/bett-ingenieure/random/.git",
+      "rm -rf vendor/bett-ingenieure/tester/.git",
+      "rm -rf vendor/bett-ingenieure/utilities/.git"
+    ]
+  }
 }

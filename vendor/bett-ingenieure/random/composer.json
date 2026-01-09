@@ -1,0 +1,22 @@
+{
+  "name": "bett-ingenieure/random",
+  "version": "dev-master",
+  "version_normalized": "9999999-dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://ssl.bett-ingenieure.de/git-repositories"
+    }
+  ],
+  "require": {
+    "bett-ingenieure/base": "dev-master@dev",
+    "ext-openssl": "*",
+    "symfony/uid": "^7.2"
+  },
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "BettIngenieure\\Random\\": "src"
+    }
+  }
+}

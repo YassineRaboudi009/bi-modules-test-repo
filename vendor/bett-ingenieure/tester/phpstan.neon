@@ -1,0 +1,13 @@
+includes:
+	- phpstan-defaults.neon
+
+parameters:
+	paths:
+		- src
+		- tests
+	bootstrapFiles:
+		- ../tester/vendor/autoload.php
+	ignoreErrors:
+		- '/^Deprecated in PHP 8.0: Required parameter .* follows optional parameter .*\.$/'
+		- '/^Calling PHPStan\\File\\SimpleRelativePathHelper::getRelativePath\(\) is not covered by backward compatibility promise.*$/'
+	reportUnmatchedIgnoredErrors: false

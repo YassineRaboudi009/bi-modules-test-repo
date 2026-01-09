@@ -1,0 +1,31 @@
+{
+  "name": "bett-ingenieure/tester",
+  "version": "dev-master",
+  "version_normalized": "9999999-dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://ssl.bett-ingenieure.de/git-repositories"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^10.1",
+    "phpstan/phpstan": "^1.10.56",
+    "bett-ingenieure/file": "dev-master",
+    "symfony/console": "^7.0",
+    "bett-ingenieure/base": "dev-master",
+    "ergebnis/phpunit-slow-test-detector": "^2.2",
+    "bett-ingenieure/utilities": "dev-master"
+  },
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "BettIngenieure\\Tester\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require-dev": {
+    "swoole/ide-helper": "^5.1"
+  }
+}
