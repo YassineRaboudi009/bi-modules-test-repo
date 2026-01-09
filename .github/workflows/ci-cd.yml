@@ -26,6 +26,7 @@ jobs:
         with:
           php-version: "8.2"
           tools: composer
+          extensions: imagick, xdebug, swoole
 
       - name: Install dependencies
         env:
