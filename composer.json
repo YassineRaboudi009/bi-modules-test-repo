@@ -1,0 +1,12 @@
+{
+    "name": "bett-ingenieure/bi-modules-test-repo",
+    "type": "library",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer-packages.bett-ingenieure.de/"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
