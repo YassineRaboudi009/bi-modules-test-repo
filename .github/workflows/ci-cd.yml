@@ -28,12 +28,12 @@ jobs:
           tools: composer
           extensions: imagick, xdebug, swoole
 
-      - name: Clone php build config
-        run: git clone --depth 1 https://github.com/bett-ingenieure/php-build-config.git .php-build-config
-
-      - name: Run php-build-config for PHP 8.2
-        run: |
-          php .php-build-config/php82-update.php
+#      - name: Clone php build config
+#        run: git clone --depth 1 https://github.com/bett-ingenieure/php-build-config.git .php-build-config
+#
+#      - name: Run php-build-config for PHP 8.2
+#        run: |
+#          php .php-build-config/php82-update.php
 
       - name: Install dependencies
         env:
