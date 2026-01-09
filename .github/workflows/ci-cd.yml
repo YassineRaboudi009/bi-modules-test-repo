@@ -28,10 +28,12 @@ jobs:
           tools: composer
           extensions: imagick, xdebug, swoole
 
-      - name: Hardcode PHP path for tester
+      - name: Provide /opt/php-82/current-live/bin/php
         run: |
           sudo mkdir -p /opt/php-82/current-live/bin
-          sudo ln -sf /usr/bin/php8.2 /opt/php-82/current-live/bin/php
+          sudo ln -sf "$(command -v php)" /opt/php-82/current-live/bin/php
+          echo "/opt/php-82/current-live/bin" >> $GITHUB_PATH
+
 
       - name: Install dependencies
         env:
