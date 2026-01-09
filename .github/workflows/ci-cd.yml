@@ -18,6 +18,12 @@ jobs:
           php-version: "8.2"
           tools: composer
 
+      - name: Run tester
+        shell: bash
+        run: |
+          echo "PWD is $PWD"
+          php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+
 #      - name: Composer auth
 #        run: |
 #          echo 'COMPOSER_AUTH={"github-oauth":{"github.com":"'"${{ github.token }}"'"}}' >> $GITHUB_ENV
@@ -31,8 +37,4 @@ jobs:
 #          cd vendor/bett-ingenieure/tester
 #          composer install
 
-      - name: Run tester
-        shell: bash
-        run: |
-          echo "PWD is $PWD"
-          php "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+
