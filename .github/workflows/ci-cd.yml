@@ -21,7 +21,30 @@ jobs:
       - name: Run tester
         shell: bash
         run: |
-          echo "PWD is $PWD"
+          echo "PWD is: $PWD"
+          echo "Listing PWD:"
+          ls -la "$PWD"
+          
+          echo "Checking root vendor:"
+          if [ -f "$PWD/vendor/autoload.php" ]; then
+            echo "✔ Found root autoload at: $PWD/vendor/autoload.php"
+          else
+            echo "✘ NOT found: $PWD/vendor/autoload.php"
+          fi
+          
+          echo "Checking tester vendor:"
+          if [ -f "$PWD/vendor/bett-ingenieure/tester/vendor/autoload.php" ]; then
+            echo "✔ Found tester autoload at: $PWD/vendor/bett-ingenieure/tester/vendor/autoload.php"
+          else
+            echo "✘ NOT found: $PWD/vendor/bett-ingenieure/tester/vendor/autoload.php"
+          fi
+          
+          echo ""
+          echo "Where phptester.php actually lives:"
+          realpath "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+          
+          echo ""
+          echo "Running tester…"
           php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
 
 #      - name: Composer auth
