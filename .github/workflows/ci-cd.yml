@@ -32,4 +32,7 @@ jobs:
 #          composer install
 
       - name: Run tester
-        run: php ./vendor/bett-ingenieure/tester/phptester.php
+        shell: bash
+        run: |
+          echo "PWD is $PWD"
+          php "$PWD/vendor/bett-ingenieure/tester/phptester.php"
