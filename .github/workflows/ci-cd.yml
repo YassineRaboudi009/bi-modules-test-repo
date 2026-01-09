@@ -18,8 +18,10 @@ jobs:
           php-version: "8.2"
           tools: composer
 
-      - name: Authenticate Composer with GitHub
-        run: composer config -g github-oauth.github.com "${{ github.token }}"
+      - name: Composer auth
+        run: |
+          echo 'COMPOSER_AUTH={"github-oauth":{"github.com":"'"${{ github.token }}"'"}}' >> $GITHUB_ENV
+          composer install --no-interaction --prefer-dist
 
       - name: Install dependencies
         run: composer install
