@@ -4,6 +4,12 @@ on:
   push:
   workflow_dispatch:
 
+#on:
+#  pull_request:
+#    types: [opened, synchronize, reopened]
+#  workflow_dispatch:
+
+
 permissions:
   contents: read
 
@@ -25,7 +31,10 @@ jobs:
         run: composer config --global github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist
+        run: |
+          composer install --no-interaction --prefer-dist
+          cd vendor/bett-ingenieure/tester
+          composer install --no-interaction --prefer-dist
 
       - name: Run tester
         shell: bash
