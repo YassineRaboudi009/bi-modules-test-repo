@@ -21,10 +21,13 @@ jobs:
       - name: Install dependencies
         run: composer install
 
-      - name: Install tester deps
+      - name: Authenticate Composer with GitHub
+        run: composer config -g github-oauth.github.com "${{ github.token }}"
+
+      - name: Install tester dependencies
         run: |
           cd vendor/bett-ingenieure/tester
-          composer install --no-interaction --no-progress --prefer-dist
+          composer install
 
       - name: Run tester
-        run: php vendor/bett-ingenieure/tester/tester.php
+        run: php ./vendor/bett-ingenieure/tester/phptester.php
