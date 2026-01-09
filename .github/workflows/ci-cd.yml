@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   tester:
     runs-on: ubuntu-latest
@@ -17,6 +20,12 @@ jobs:
         with:
           php-version: "8.2"
           tools: composer
+
+      - name: Configure Composer GitHub token
+        run: composer config --global github-oauth.github.com "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
 
       - name: Run tester
         shell: bash
