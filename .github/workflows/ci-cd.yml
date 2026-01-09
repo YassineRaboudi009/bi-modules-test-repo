@@ -19,10 +19,6 @@ jobs:
           tools: composer
 
       - name: Install tester deps
-        working-directory: tester
-        run: composer install
-
-      - name: Install tester deps
         run: |
           cd vendor/bett-ingenieure/tester
           composer install --no-interaction --no-progress --prefer-dist
