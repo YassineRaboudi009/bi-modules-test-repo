@@ -17,25 +17,15 @@ jobs:
         with:
           php-version: "8.2"
           tools: composer
-          coverage: none
-
-      - name: Checkout tester repo
-        uses: actions/checkout@v4
-        with:
-          repository: bett-ingenieure/php-tester
-          ref: main
-          path: tester
-          token: ${{ github.token }}
 
       - name: Install tester deps
         working-directory: tester
-        run: composer install --no-interaction --no-progress --prefer-dist
+        run: composer install
 
-      - name: Run
-        working-directory: ${{ github.workspace }}
+      - name: Install tester deps
         run: |
-          echo "Target repo root: $(pwd)"
-          echo "Tester repo path: $GITHUB_WORKSPACE/tester"
-          ls -la "$GITHUB_WORKSPACE/tester" || true
+          cd vendor/bett-ingenieure/tester
+          composer install --no-interaction --no-progress --prefer-dist
 
-          php "$GITHUB_WORKSPACE/tester/tester.php"
+      - name: Run tester
+        run: php vendor/bett-ingenieure/tester/tester.php
