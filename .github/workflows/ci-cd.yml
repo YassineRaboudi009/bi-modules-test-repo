@@ -57,10 +57,8 @@ jobs:
         env:
           TMPDIR: /tmp/
         run: |
+          set -e
           echo "PWD is: $PWD"
-          echo "Running tester…"
-          php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
-          
           echo "Running tester…"
           php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php" || { echo "- Tests Failed"; exit 1; }
           echo "- Tests Passed"
