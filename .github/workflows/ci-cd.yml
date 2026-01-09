@@ -1,13 +1,13 @@
 name: Module CI
 
-on:
-  push:
-  workflow_dispatch:
-
 #on:
-#  pull_request:
-#    types: [opened, synchronize, reopened]
+#  push:
 #  workflow_dispatch:
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 
 permissions:
@@ -52,6 +52,15 @@ jobs:
           echo "PWD is: $PWD"
           echo "Running tester…"
           /opt/php-82/current-live/bin/php -d variables_order=EGPCS "$PWD/vendor/bett-ingenieure/tester/phptester.php"
+          
+          status=$?
+          
+          if [ $status -eq 0 ]; then
+            echo "- Tests Passed"
+          else
+            echo "- Tests Failed"
+            exit 1;
+          fi
 
 #      - name: Composer auth
 #        run: |
